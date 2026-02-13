@@ -23,9 +23,9 @@ jobs:
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
 
-      - name: Terraform Validate Examples
+      - name: Terraform Validate Modules
         run: |
-          for dir in examples/*/; do
+          for dir in modules/*/; do
             if [ -f "$dir/main.tf" ]; then
               echo "Validating $dir"
               cd "$dir"
@@ -35,9 +35,9 @@ jobs:
             fi
           done
 
-      - name: Terraform Validate Modules
+      - name: Terraform Validate Examples
         run: |
-          for dir in modules/*/; do
+          for dir in examples/*/; do
             if [ -f "$dir/main.tf" ]; then
               echo "Validating $dir"
               cd "$dir"
