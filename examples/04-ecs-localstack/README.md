@@ -2,6 +2,8 @@
 
 Test the ECS module locally using LocalStack without AWS costs.
 
+> **⚠️ Note**: This example requires **LocalStack Pro** (paid license) as the free version doesn't support ECS API. The Terraform configuration is valid and can be used with real AWS or LocalStack Pro.
+
 ## What This Example Does
 
 - Runs LocalStack to emulate AWS services locally
@@ -15,6 +17,7 @@ Test the ECS module locally using LocalStack without AWS costs.
 - Docker Desktop or Docker Engine
 - Docker Compose
 - Terraform >= 1.0
+- **LocalStack Pro license** (for ECS support)
 - AWS CLI (optional, for verification)
 
 ## Quick Start
