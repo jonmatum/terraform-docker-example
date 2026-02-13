@@ -111,8 +111,8 @@ Type `yes` to remove all resources.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_backend"></a> [backend](#module\_backend) | ../modules/docker-container | n/a |
-| <a name="module_frontend"></a> [frontend](#module\_frontend) | ../modules/docker-container | n/a |
+| <a name="module_backend"></a> [backend](#module\_backend) | ../../modules/docker-container | n/a |
+| <a name="module_frontend"></a> [frontend](#module\_frontend) | ../../modules/docker-container | n/a |
 
 ## Resources
 

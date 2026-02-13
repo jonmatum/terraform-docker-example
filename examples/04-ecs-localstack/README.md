@@ -274,13 +274,13 @@ Use LocalStack for development and testing, then deploy to real AWS for producti
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.100.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_nginx_service"></a> [nginx\_service](#module\_nginx\_service) | ../modules/ecs-fargate | n/a |
+| <a name="module_nginx_service"></a> [nginx\_service](#module\_nginx\_service) | ../../modules/ecs-fargate | n/a |
 
 ## Resources
 

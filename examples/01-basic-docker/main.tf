@@ -14,7 +14,7 @@ resource "docker_network" "app_network" {
 }
 
 module "backend" {
-  source = "../modules/docker-container"
+  source = "../../modules/docker-container"
 
   container_name = "backend"
   image_name     = "node:18-alpine"
@@ -33,7 +33,7 @@ module "backend" {
 }
 
 module "frontend" {
-  source = "../modules/docker-container"
+  source = "../../modules/docker-container"
 
   container_name = "frontend"
   image_name     = "nginx:alpine"

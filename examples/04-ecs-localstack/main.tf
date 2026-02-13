@@ -97,7 +97,7 @@ resource "aws_cloudwatch_log_group" "app" {
 
 # ECS Service using the module
 module "nginx_service" {
-  source = "../modules/ecs-fargate"
+  source = "../../modules/ecs-fargate"
 
   cluster_name    = "test-cluster"
   task_family     = "nginx-task"

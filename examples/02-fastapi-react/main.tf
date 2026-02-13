@@ -30,7 +30,7 @@ resource "docker_image" "frontend" {
 }
 
 module "backend" {
-  source = "../modules/docker-container"
+  source = "../../modules/docker-container"
 
   container_name = "fastapi-backend"
   image_name     = docker_image.backend.name
@@ -47,7 +47,7 @@ module "backend" {
 }
 
 module "frontend" {
-  source = "../modules/docker-container"
+  source = "../../modules/docker-container"
 
   container_name = "react-frontend"
   image_name     = docker_image.frontend.name
