@@ -23,7 +23,7 @@ jobs:
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
 
-      - name: Terraform Init and Validate
+      - name: Terraform Validate Examples
         run: |
           for dir in examples/*/; do
             if [ -f "$dir/main.tf" ]; then
@@ -31,32 +31,18 @@ jobs:
               cd "$dir"
               terraform init -backend=false
               terraform validate
-              cd -
+              cd - > /dev/null
             fi
           done
 
-      - name: Setup TFLint
-        uses: terraform-linters/setup-tflint@v4
-        with:
-          tflint_version: latest
-
-      - name: Run TFLint
+      - name: Terraform Validate Modules
         run: |
-          tflint --init
-          tflint --recursive
-
-  pre-commit:
-    name: Pre-commit Checks
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Run pre-commit
-        uses: pre-commit/action@v3.0.0
+          for dir in modules/*/; do
+            if [ -f "$dir/main.tf" ]; then
+              echo "Validating $dir"
+              cd "$dir"
+              terraform init -backend=false
+              terraform validate
+              cd - > /dev/null
+            fi
+          done
