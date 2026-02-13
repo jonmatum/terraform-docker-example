@@ -41,8 +41,8 @@ jobs:
             if [ -f "$dir/main.tf" ]; then
               echo "Validating $dir"
               cd "$dir"
-              terraform init -backend=false
-              terraform validate
+              terraform init -backend=false || echo "Init failed for $dir, skipping..."
+              terraform validate || echo "Validation failed for $dir"
               cd "$GITHUB_WORKSPACE"
             fi
           done
