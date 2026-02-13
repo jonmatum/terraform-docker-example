@@ -28,10 +28,7 @@ jobs:
           for dir in examples/*/; do
             if [ -f "$dir/main.tf" ]; then
               echo "Validating $dir"
-              cd "$dir"
-              terraform init -backend=false
-              terraform validate
-              cd - > /dev/null
+              (cd "$dir" && terraform init -backend=false && terraform validate)
             fi
           done
 
@@ -40,9 +37,6 @@ jobs:
           for dir in modules/*/; do
             if [ -f "$dir/main.tf" ]; then
               echo "Validating $dir"
-              cd "$dir"
-              terraform init -backend=false
-              terraform validate
-              cd - > /dev/null
+              (cd "$dir" && terraform init -backend=false && terraform validate)
             fi
           done
