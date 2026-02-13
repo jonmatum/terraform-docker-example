@@ -24,24 +24,28 @@ jobs:
         run: terraform fmt -check -recursive
 
       - name: Terraform Validate Modules
+        env:
+          TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE: "true"
         run: |
           for dir in modules/*/; do
             if [ -f "$dir/main.tf" ]; then
               echo "Validating $dir"
               cd "$dir"
-              terraform init -backend=false
+              terraform init -backend=false -upgrade
               terraform validate
               cd "$GITHUB_WORKSPACE"
             fi
           done
 
       - name: Terraform Validate Examples
+        env:
+          TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE: "true"
         run: |
           for dir in examples/*/; do
             if [ -f "$dir/main.tf" ]; then
               echo "Validating $dir"
               cd "$dir"
-              terraform init -backend=false || echo "Init failed for $dir, skipping..."
+              terraform init -backend=false -upgrade || echo "Init failed for $dir, skipping..."
               terraform validate || echo "Validation failed for $dir"
               cd "$GITHUB_WORKSPACE"
             fi
