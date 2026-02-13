@@ -183,6 +183,7 @@ See `../docker-compose-example/` for the same application using Docker Compose i
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_docker"></a> [docker](#requirement\_docker) | ~> 3.0 |
 
 ## Providers
@@ -219,3 +220,46 @@ No inputs.
 | <a name="output_frontend_container_id"></a> [frontend\_container\_id](#output\_frontend\_container\_id) | Frontend container ID |
 | <a name="output_frontend_url"></a> [frontend\_url](#output\_frontend\_url) | Frontend URL |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_docker"></a> [docker](#requirement\_docker) | ~> 3.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_docker"></a> [docker](#provider\_docker) | 3.6.2 |
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_backend"></a> [backend](#module\_backend) | ../../modules/docker-container | n/a |
+| <a name="module_frontend"></a> [frontend](#module\_frontend) | ../../modules/docker-container | n/a |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [docker_image.backend](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/image) | resource |
+| [docker_image.frontend](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/image) | resource |
+| [docker_network.app_network](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/network) | resource |
+
+## Inputs
+
+No inputs.
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_backend_container_id"></a> [backend\_container\_id](#output\_backend\_container\_id) | Backend container ID |
+| <a name="output_backend_url"></a> [backend\_url](#output\_backend\_url) | Backend API URL |
+| <a name="output_frontend_container_id"></a> [frontend\_container\_id](#output\_frontend\_container\_id) | Frontend container ID |
+| <a name="output_frontend_url"></a> [frontend\_url](#output\_frontend\_url) | Frontend URL |
+<!-- END_TF_DOCS -->

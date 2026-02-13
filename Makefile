@@ -25,7 +25,12 @@ fmt: ## Format all Terraform files
 
 lint: ## Run TFLint on all files
 	@echo "🔍 Running TFLint..."
-	@tflint --recursive --config=.tflint.hcl
+	@for dir in modules/*/ examples/*/; do \
+		if [ -f "$$dir/main.tf" ]; then \
+			echo "  → $$dir"; \
+			cd "$$dir" && tflint --config=../../.tflint.hcl && cd - > /dev/null; \
+		fi \
+	done
 	@echo "✅ Linting complete"
 
 # Documentation

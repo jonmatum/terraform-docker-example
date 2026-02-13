@@ -46,6 +46,7 @@ module "container" {
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_docker"></a> [docker](#requirement\_docker) | ~> 3.0 |
 
 ## Providers
@@ -85,3 +86,49 @@ No modules.
 | <a name="output_container_name"></a> [container\_name](#output\_container\_name) | Name of the Docker container |
 | <a name="output_image_id"></a> [image\_id](#output\_image\_id) | ID of the Docker image |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_docker"></a> [docker](#requirement\_docker) | ~> 3.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_docker"></a> [docker](#provider\_docker) | 3.6.2 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [docker_container.this](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/container) | resource |
+| [docker_image.this](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/image) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_command"></a> [command](#input\_command) | Command to run in the container | `list(string)` | `[]` | no |
+| <a name="input_container_name"></a> [container\_name](#input\_container\_name) | Name of the Docker container | `string` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment variables for the container | `map(string)` | `{}` | no |
+| <a name="input_image_name"></a> [image\_name](#input\_image\_name) | Docker image name with tag | `string` | n/a | yes |
+| <a name="input_keep_image_locally"></a> [keep\_image\_locally](#input\_keep\_image\_locally) | Keep image locally after destroy | `bool` | `false` | no |
+| <a name="input_network_name"></a> [network\_name](#input\_network\_name) | Docker network name | `string` | n/a | yes |
+| <a name="input_ports"></a> [ports](#input\_ports) | Port mappings for the container | <pre>list(object({<br/>    internal = number<br/>    external = number<br/>  }))</pre> | `[]` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_container_id"></a> [container\_id](#output\_container\_id) | ID of the Docker container |
+| <a name="output_container_name"></a> [container\_name](#output\_container\_name) | Name of the Docker container |
+| <a name="output_image_id"></a> [image\_id](#output\_image\_id) | ID of the Docker image |
+<!-- END_TF_DOCS -->
